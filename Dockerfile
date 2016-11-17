@@ -7,5 +7,6 @@ ENV AWS_S3_SECRET_KEY="mandatory"
 ENV AWS_S3_BUCKET_NAME="mandatory"
 ENV RETENTION_PERIOD_IN_DAYS=60
 ADD scripts/s3sync.sh /
+VOLUME ["/data"]
 ENTRYPOINT /bin/sh
 CMD /s3sync.sh

@@ -3,13 +3,6 @@ restore() {
 	s3cmd sync --access_key=${AWS_S3_ACCESS_KEY} --secret_key=${AWS_S3_SECRET_KEY} s3://${AWS_S3_BUCKET_NAME}/ /data/
 }
 
-cleanup() {
-	if [ "" != "${RETENTION_PERIOD_IN_DAYS}" ]
-	then
-		find /data -mtime +${RETENTION_PERIOD_IN_DAYS} -exec rm -f {} \;		
-	fi
-}
-
 sync() {
 	while [ true ]
 	do
@@ -19,5 +12,4 @@ sync() {
 }
 
 restore
-cleanup
 sync

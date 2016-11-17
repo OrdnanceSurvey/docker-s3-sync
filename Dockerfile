@@ -5,7 +5,6 @@ RUN mkdir -p /data/{db,configdb} && apt-get clean && apt-get update -y && apt-ge
 ENV AWS_S3_ACCESS_KEY="mandatory"
 ENV AWS_S3_SECRET_KEY="mandatory"
 ENV AWS_S3_BUCKET_NAME="mandatory"
-ENV RETENTION_PERIOD_IN_DAYS=60
 VOLUME ["/data/db"]
 VOLUME ["/data/configdb"]
 ENTRYPOINT /bin/sh
